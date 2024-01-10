@@ -1,0 +1,10 @@
+//hay una extencion de visual code que se llama prisma
+
+//prisma se instala en modo desarrollo, para produccion es prisma client
+npm i prisma -D
+
+//para inicializar la bd
+npx prisma init --datasource-provider sqlite
+
+//para crear la migracion 
+npx prisma migrate dev 
