@@ -66,18 +66,68 @@ async function main(){
 //     const users = await prisma.user.findMany();
 //     console.log(users)  
 
-const user = await prisma.user.upsert({
-    where:{name:'Ervin'},
-    create:{
-        email:'pepe@correo.com',
-        name:'Pepe'
-    },
-    update:{
-        lastName:'Jimenez'
-    }
-})
+// const user = await prisma.user.upsert({
+//     where:{name:'Ervin'},
+//     create:{
+//         email:'pepe@correo.com',
+//         name:'Pepe'
+//     },
+//     update:{
+//         lastName:'Jimenez'
+//     }
+// })
 
-console.log(user)
+// console.log(user)
+
+//Crear usuario con post
+    // const newUser = await prisma.user.create({
+    //     data:{
+    //         name:"Jose",
+    //         email: "josecorreo@correo1.com"
+    //     }
+    // })
+
+    // console.log(newUser)
+
+    // const newPost = await prisma.post.create({
+    //     data:{
+    //         title:'mi primer publicacion',
+    //         content:'este es un contenido',
+    //         authorId: newUser.id//,
+    //         // author:{
+    //         //     connect:{
+    //         //         id:newUser.id
+    //         //     }
+    //         // }
+    //     }
+    // })
+
+    // console.log(newPost)
+    // const newUser = await prisma.user.create({
+    //     data:{
+    //         name:"Juan",
+    //         email:'juan@correo.com',
+    //         posts:{
+    //             create:{
+    //                 title:'tuto',
+    //                 content:'hola...'
+    //             }
+    //         }
+    //     }
+    // })
+
+    // console.log(newUser)
+
+    // const posts = await prisma.post.findMany();
+    // console.log(posts)
+
+    const users = await prisma.user.findMany({
+        include:{
+            posts:true
+        }
+    })
+
+    console.log(users)
 }
 
 //de igual manera hay deleteMany
