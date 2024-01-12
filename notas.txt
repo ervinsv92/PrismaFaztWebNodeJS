@@ -7,4 +7,7 @@ npm i prisma -D
 npx prisma init --datasource-provider sqlite
 
 //para crear la migracion 
-npx prisma migrate dev 
+npx prisma migrate dev --name init
+
+//aplica las migraciones en la bd
+npx prisma migrate deploy
